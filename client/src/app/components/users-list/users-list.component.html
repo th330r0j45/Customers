@@ -8,11 +8,15 @@
         </tr>
     </thead>
     <tbody *ngFor="let user of users">
-        <tr>
+        <tr d-flex justify-content-between aling-items-center>
             <th scope="row">{{user.id}}</th>
             <td scope="row">{{user.name}}</td>
             <td scope="row">{{user.phone}}</td>
             <td scope="row">{{user.email}}</td>
+            <div class="container">
+                <a [routerLink]="['/users/edit',user.id]" class="btn btn-info btn-block padding 10px"><i class="fas fa-user-edit"></i></a>
+                <a class="btn btn-danger btn-block " (click)="deleteUser(user.id)"><i class="fa fa-trash-alt "></i></a>
+            </div>
         </tr>
     </tbody>
 </table>

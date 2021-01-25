@@ -15,16 +15,16 @@ API_URI = 'http://localhost:3000/api/users/'
      return this.http.get(`${this.API_URI}`);
    }
    getUser(id: string){
-    return this.http.get(`${this.API_URI}/user/${id}`);
+    return this.http.get(`${this.API_URI}${id}`);
   }
   deleteUser(id: string){
-    return this.http.delete(`${this.API_URI}/user/${id}`);
+    return this.http.delete(`${this.API_URI}${id}`);
   }
   saveUser(user:User){
-    return this.http.post(`${this.API_URI}/user/`,user);
+    return this.http.post(`${this.API_URI}`,user);
   }
   updateUser(id, updateUser){
-    return this.http.put(`${this.API_URI}/user/${id}`,updateUser);
+    return this.http.put(`${this.API_URI}${id}`,updateUser);
   }
 
 }
