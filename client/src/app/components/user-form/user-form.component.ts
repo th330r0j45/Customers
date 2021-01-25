@@ -2,6 +2,9 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { User } from 'src/models/User';
 import { UsersService } from 'src/app/services/users.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-user-form',
