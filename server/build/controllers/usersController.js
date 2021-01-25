@@ -23,11 +23,11 @@ class UsersController {
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const user = yield database_1.default.query('SELECT * FROM users WHERE id = ?', [id]);
-            if (user.length > 0) {
-                return res.json(user[0]);
+            const users = yield database_1.default.query('SELECT * FROM users WHERE id = ?', [id]);
+            if (users.length > 0) {
+                return res.json(users[0]);
             }
-            console.log(user);
+            console.log(users);
             res.status(404).json({ text: 'User doesn´t exist!' });
         });
     }

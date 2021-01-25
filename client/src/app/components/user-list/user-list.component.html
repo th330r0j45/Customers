@@ -1,0 +1,18 @@
+<table class="table table" text->
+    <thead>
+        <tr class="col-sm-3">
+            <th scope="col"># de Cedula</th>
+            <th scope="col">Nombre completo</th>
+            <th scope="col">Celular</th>
+            <th scope="col">Correo</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let user of users">
+        <tr>
+            <th scope="row">{{user.id}}</th>
+            <td scope="row">{{user.name}}</td>
+            <td scope="row">{{user.phone}}</td>
+            <td scope="row">{{user.email}}</td>
+        </tr>
+    </tbody>
+</table>
