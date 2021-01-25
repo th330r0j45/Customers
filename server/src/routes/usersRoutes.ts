@@ -12,8 +12,11 @@ class UserRoutes {
     }
 
     config():void {
-        this.router.get('/',usersController.index);
-        
+        this.router.get('/',usersController.list);
+        this.router.get('/:id',usersController.getOne);
+        this.router.post('/',usersController.create);
+        this.router.put('/:id',usersController.update);
+        this.router.delete('/:id',usersController.delete);
     }
 
 }

@@ -6,7 +6,7 @@ CREATE TABLE users (
     id INTEGER PRIMARY KEY ,
     name VARCHAR,
     phone VARCHAR,
-    email VARCHAR
+    email VARCHAR,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 DESCRIBE users

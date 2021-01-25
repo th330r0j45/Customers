@@ -11,7 +11,11 @@ class UserRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', usersController_1.default.index);
+        this.router.get('/', usersController_1.default.list);
+        this.router.get('/:id', usersController_1.default.getOne);
+        this.router.post('/', usersController_1.default.create);
+        this.router.put('/:id', usersController_1.default.update);
+        this.router.delete('/:id', usersController_1.default.delete);
     }
 }
 exports.default = new UserRoutes().router;
