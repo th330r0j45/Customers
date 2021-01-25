@@ -1,7 +1,8 @@
 import { Component, Host, HostBinding, OnInit } from '@angular/core';
-
 import { UsersService } from '../../services/users.service'
 import {User} from '../../../models/User';
+import { switchAll } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-users-list',
@@ -28,14 +29,23 @@ export class UsersListComponent implements OnInit {
     )
   }
   deleteUser(id:string){
-    console.log(id)
+    Swal.fire({
+      title:'¿Esta seguro?',
+      icon: 'error',
+      showConfirmButton:true, 
+      showCancelButton:true
+    })
+    
     this.usersService.deleteUser(id).subscribe(
       res => {
         console.log(res)
         this.getUsers();
+        
       },
       err => console.error(err)
     )
+    
+    
   }
   
 

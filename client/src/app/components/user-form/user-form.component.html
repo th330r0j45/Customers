@@ -2,34 +2,35 @@
     <div class="card">
         <div class="card-body">
             <form action="">
-                <div class="form-group">
-                    <input type="integer" name="id" [(ngModel)]="user.id" placeholder="Por favor introduzca su cedula" class="form-control" autofocus>
+                <h6 class="card-subtitle mb-4 text-muted">Introduzca un usuario</h6>
+                <div class="form-group ">
+                    <input type="integer " name="id " [(ngModel)]="user.id " placeholder="Introduzca su cedula " class="form-control " autofocus>
                 </div>
-                <div class="form-group">
-                    <input type="text" name="name" [(ngModel)]="user.name" placeholder="Por favor introduzca su nombre" class="form-control" autofocus>
+                <div class="form-group ">
+                    <input type="text " name="name " [(ngModel)]="user.name " placeholder="Introduzca su nombre " class="form-control " autofocus>
                 </div>
-                <div class="form-group">
-                    <input type="integer" name="phone" [(ngModel)]="user.phone" placeholder="Por favor digite su numero de telefono" class="form-control" autofocus>
+                <div class="form-group ">
+                    <input type="integer " name="phone " [(ngModel)]="user.phone " placeholder="Digite su numero de telefono " class="form-control " autofocus>
                 </div>
-                <div class="form-group">
-                    <input type="email" name="email" [(ngModel)]="user.email" placeholder="Por favor introduzca su email" class="form-control" autofocus>
+                <div class="form-group ">
+                    <input type="email " name="email " [(ngModel)]="user.email " placeholder="Introduzca su email " class="form-control " autofocus>
                 </div>
 
-                <button class="btn btn-success btn-block" (click)="edit ? updateUser() : saveNewUser()">
-            Save
+                <button class="btn btn-success btn-block " (click)="edit ? updateUser() : saveNewUser() ">
+            Guardar
           </button>
             </form>
         </div>
     </div>
 </div>
 
-<div class="col-md-4">
-    <div class="card card-body text-center">
-        <i class="fas fa-id-badge size:7px"></i>
-        <h3>Su cedula es: {{user.id == '' ? '' : user.id}}</h3>
+<div class="col-md-4 ">
+    <div class="card card-body text-center ">
+        <i class="fas fa-id-badge size:7px "></i>
+        <h3>Su cédula es: {{user.id == '' ? '' : user.id}}</h3>
         <p>Su nombre es:{{user.name == '' ? '' : user.name}}</p>
-        <p>Su numero de celular es:{{user.phone == '' ? '' : user.phone}}</p>
+        <p>Su número de celular es:{{user.phone == '' ? '' : user.phone}}</p>
         <p>Su email es :{{user.email == '' ? '' : user.email}}</p>
-        <p>{{user.created_at | date: 'yyyy-MM-dd'}}</p>
+        <p>Fecha creación usuario:{{user.created_at | date: 'yyyy-MM-dd'}}</p>
     </div>
 </div>

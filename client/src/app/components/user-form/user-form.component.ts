@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UserFormComponent implements OnInit {
   @HostBinding('class') clases = 'row';
 
-  user  : User= {
+   user: User = {
     id:'',
     name:'',
     phone: '',
@@ -22,14 +22,13 @@ export class UserFormComponent implements OnInit {
   constructor(private userService: UsersService,private router:Router,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(){
-    delete this.user.created_at;
     const params = this.activatedRoute.snapshot.params;
     if (params.id){
     this.userService.getUser(params.id)
     .subscribe(
     res =>{
       console.log(res);
-      // this.game = res;
+      this.user = res;
       this.edit = true;
     },
     err=> console.error(err)
