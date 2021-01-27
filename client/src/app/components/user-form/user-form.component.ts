@@ -15,28 +15,30 @@ export class UserFormComponent implements OnInit {
   @HostBinding('class') clases = 'row';
 
    user: User = {
-    id:'',
-    name:'',
+    id: '',
+    name: '',
     phone: '',
     email: '',
     created_at: new Date()
+
   };
-  edit: boolean = false;
-  constructor(private userService: UsersService,private router:Router,private activatedRoute:ActivatedRoute) { }
+  edit = false;
+  constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(){
     const params = this.activatedRoute.snapshot.params;
     if (params.id){
     this.userService.getUser(params.id)
     .subscribe(
-    res =>{
+    res => {
       console.log(res);
       this.user = res;
       this.edit = true;
     },
-    err=> console.error(err)
-    )
+    err => console.error(err)
+    );
   }
+
   }
   saveNewUser() {
     delete this.user.created_at;
@@ -47,19 +49,22 @@ export class UserFormComponent implements OnInit {
           this.router.navigate(['/users']);
         },
         err => console.error(err)
-      )
+      );
   }
+
 
   updateUser() {
     delete this.user.created_at;
     this.userService.updateUser(this.user.id, this.user)
       .subscribe(
-        res => { 
+        res => {
           console.log(res);
           this.router.navigate(['/users']);
         },
         err => console.error(err)
-      )
+      );
   }
+
+
 
 }

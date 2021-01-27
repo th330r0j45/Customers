@@ -1,7 +1,10 @@
+export type Roles = 'ADMIN' | 'CLIENT';
+
 export interface User{
-    id?:string;
-    name?:string;
-    phone?:string;
-    email?:string;
-    created_at?:Date
-};
+    id?: any;
+    name?: any;
+    phone?: any;
+    email?: any;
+    role?: any;
+    created_at?: Date;
+}

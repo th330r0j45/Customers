@@ -12,7 +12,7 @@ import { UsersListComponent } from './components/users-list/users-list.component
 // Services
 import { UsersService } from './services/users.service';
 import { UserFormComponent } from './components/user-form/user-form.component';
-import {LoginComponent } from './components/login/login.component';
+import {LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({

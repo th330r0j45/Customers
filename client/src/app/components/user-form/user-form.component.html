@@ -1,7 +1,7 @@
 <div class="col-md-4 offset-md-2">
     <div class="card">
         <div class="card-body">
-            <form class="">
+            <form class="FormControl">
                 <h6 class="card-subtitle mb-4 text-muted">Introduzca un usuario</h6>
                 <div class="form-group ">
                     <input type="number " name="id " [(ngModel)]="user.id " placeholder="Introduzca su cedula " class="form-control " autofocus required>
@@ -11,10 +11,12 @@
                 </div>
 
                 <div class="form-group ">
-                    <input type="number " name="phone " [(ngModel)]="user.phone " placeholder="Digite su numero de telefono " requiered class="form-control " autofocus>
+                    <input type="number " id="phone" name="phone " [(ngModel)]="user.phone " placeholder="Digite su numero de telefono " requiered class="form-control " autofocus appFormValidation>
+
                 </div>
                 <div class="form-group ">
-                    <input type="email " name="email " [(ngModel)]="user.email " placeholder="Introduzca su email " required class="form-control " autofocus required>
+                    <input type="email " name="email " [(ngModel)]="user.email " placeholder="Introduzca su email " required class="form-control " autofocus required validate>
+                    <div></div>
                 </div>
 
                 <button class="btn btn-success btn-block " (click)="edit ? updateUser() : saveNewUser() ">

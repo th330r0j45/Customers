@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../services/users.service'
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-
+import { HttpClient } from '@angular/common/http';
+import { User } from 'src/models/User';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +13,15 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api: AuthService) { }
 
   ngOnInit(): void {
   }
+  onLogin(form: User){
+  this.api.loginByEmail(form).subscribe(data => {
+    console.log(data);
+  })
+  }
+  
 
 }

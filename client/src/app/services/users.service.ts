@@ -7,9 +7,11 @@ import {User} from '../../models/user';
   providedIn: 'root'
 })
 export class UsersService {
-API_URI = 'http://localhost:3000/api/users/'
+
+
+API_URI = 'http://localhost:3000/api/users/';
   constructor(private http: HttpClient) {
-    
+
    }
    getUsers(){
      return this.http.get(`${this.API_URI}`);
@@ -20,11 +22,11 @@ API_URI = 'http://localhost:3000/api/users/'
   deleteUser(id: string){
     return this.http.delete(`${this.API_URI}${id}`);
   }
-  saveUser(user:User){
-    return this.http.post(`${this.API_URI}`,user);
+  saveUser(user: User){
+    return this.http.post(`${this.API_URI}`, user);
   }
   updateUser(id, updateUser){
-    return this.http.put(`${this.API_URI}${id}`,updateUser);
+    return this.http.put(`${this.API_URI}${id}`, updateUser);
   }
 
 }

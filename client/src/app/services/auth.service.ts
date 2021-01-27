@@ -1,68 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from 'src/models/User';
-import { promise } from 'protractor';
-import { Observable } from 'rxjs/internal/Observable';
-import { map } from 'rxjs/operators';
-import {isNullOrUndefined} from 'util'
-
-
+import { Response } from 'src/models/Response';
+import { UsersService } from './users.service';
+import {Observable} from 'rxjs';
+import { LoginComponent } from '../auth/login/login.component';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  url: string = 'http://localhost:3000/api/users/';
 
-  private url = 'http:';
+  constructor(private http: HttpClient){}
+  loginByEmail(form: User): Observable<Response>{
+  let direccion = this.url+"";
 
-  constructor(private http: HttpClient) { }
-  headers: HttpHeaders = new HttpHeaders({
-    "Content-Type": "application/json"
-  });
-  registerUser(email: string, id: string){
-    const url_api = 'http://localhost:3000/api/users/'
-    return this.http.post(url_api,{email, id},
-      {headers:this.headers}
-      )
-      .pipe(map(data=>data));
+  return this.http.post<Response>(direccion, form);
   }
-  loginUser(email: string, id: string):Observable<any>{
-    const url_api = 'http://localhost:3000/api/users/login?include=user'
-    return this.http.post(url_api,{email, id},{headers:this.headers})
-    .pipe(map(data=>data));
-  }
-  setUser(user):void{
-  let user_string = JSON.stringify(user);
-  localStorage.setItem('currentUser',user_string);
-  }
-  setToken(token):void{
-    localStorage.setItem("accessToken",token)
-  }
-  
-  getToken(token){
-    localStorage.getItem("accessToken");
-  }
-  getCurrentUser(){
-    let user_string = localStorage.getItem('currentUser');
-    if(!isNullOrUndefined(user_string)){
-      let user = JSON.parse(user_string);
-      return user;
-    }else{
-      return null
-    }
-  }
-  logoutUser(){
-    let accessToken = localStorage.getItem('accessToken')
-    const url_api = 'http://localhost:3000/api/users/logout?access_token=${access_token}'
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("currentUser");
-    return this.http.post(url_api,{headers:this.headers},);
   }
 
-  }
-  
-  
+
 
 
 
